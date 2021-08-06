@@ -18,3 +18,8 @@ RoxygenNote: 7.1.1
 Imports:
   utils,
   magrittr
+Suggests: 
+    testthat (>= 3.0.0)
+    mockery
+    mockr
+Config/testthat/edition: 3

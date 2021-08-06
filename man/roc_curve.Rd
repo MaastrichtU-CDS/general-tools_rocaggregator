@@ -13,14 +13,23 @@ roc_curve(fpr, tpr, thresholds, negative_count, total_count)
 
 \item{thresholds}{list - Thresholds used to compute the fpr and tpr}
 
-\item{negative_count}{list - Total number of samples corresponding to the
+\item{negative_count}{vector - Total number of samples corresponding to the
 negative case}
 
-\item{total_count}{list - Total number of samples}
+\item{total_count}{vector - Total number of samples}
 }
 \value{
 list with the global fpr, tpr, and thresholds
 }
 \description{
 Compute Receiver operating characteristic (ROC)
+}
+\examples{
+roc_curve(
+  list(c(0, 0, 0, 0, 0.002), c(0, 0, 0.001, 0.015)),
+  list(c(0, 0.004, 0.12, 0.15, 0.4), c(0, 0.04, 0.08, 0.1)),
+  list(c(0.99, 0.95, 0.93, 0.92, 0.82), c(0.93, 0.92, 0.87, 0.82)),
+  c(123, 167),
+  c(324, 423)
+)
 }

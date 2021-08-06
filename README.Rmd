@@ -18,7 +18,8 @@ knitr::opts_chunk$set(
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of ROCaggregator is to ...
+Aggregates the ROCs obtained from multiple sources into one global ROC.
+Additionally, it's also possible to calculate the precision-recall curve.
 
 ## Installation
 
@@ -30,25 +31,39 @@ install.packages("ROCaggregator")
 
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
+- Obtain the global ROC curve from different sources by providing the false positive rate (fpr), true positive rate (tpr), thresholds (thresh), the total number of negative samples, and the total number of samples from each source:
 
-```{r example}
+```
 library(ROCaggregator)
-## basic example code
+
+y1 <- c(1, 0, 1, 1, 0, 0, 0, ...)
+# false positive rate values for each threshold
+fpr_1 <- c(0, 0, 0, 0, 0.002, ...)
+# true positive rate values for each threshold
+tpr_1 <- c(0, 0.004, 0.008, 0.012, 0.016, ...)
+# thresholds used
+thresh_1 <- c(0.9994038, 0.9986345, 0.99847864, 0.99575908, 0.99567612, ...)
+# count the number of negative labels
+negative_count_1 <- sum(y1 == 0)
+# total number of labels
+total_count_1 <- length(y1)
+...
+# ROC curve
+roc <- roc_curve(
+  list(fpr_1, fpr_2, ...),
+  list(tpr_1, tpr_2, ...),
+  list(thresh_1, thresh_2, ...),
+  c(negative_count_1, negative_count_2, ...),
+  c(total_count_1, total_count_2, ...)
+)
+
+# Precision-recall
+pre_recall <- precision_recall_curve(
+  list(fpr_1, fpr_2, ...),
+  list(tpr_1, tpr_2, ...),
+  list(thresh_1, thresh_2, ...),
+  c(negative_count_1, negative_count_2, ...),
+  c(total_count_1, total_count_2, ...)
+)
+
 ```
-
-What is special about using `README.Rmd` instead of just `README.md`? You can include R chunks like so:
-
-```{r cars}
-summary(cars)
-```
-
-You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date. `devtools::build_readme()` is handy for this. You could also use GitHub Actions to re-render `README.Rmd` every time you push. An example workflow can be found here: <https://github.com/r-lib/actions/tree/master/examples>.
-
-You can also embed plots, for example:
-
-```{r pressure, echo = FALSE}
-plot(pressure)
-```
-
-In that case, don't forget to commit and push the resulting figure files, so they display on GitHub and CRAN.

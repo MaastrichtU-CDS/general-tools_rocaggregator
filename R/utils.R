@@ -27,8 +27,6 @@ shift_vector <- function(x, n) if (n == 0) x else c(tail(x, n), head(x, -n))
 #' @export
 #' @importFrom magrittr %>%
 #' @importFrom utils head tail
-#'
-#' @examples
 partial_cm <- function(fpr, tpr, thresholds, negative_count, total_count, descending=FALSE) {
   # Arrange the necessary parameters
   node_indexes <- rep.int(1:(length(thresholds)), c(lengths(thresholds)))

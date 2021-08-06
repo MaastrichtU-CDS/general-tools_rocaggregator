@@ -3,14 +3,21 @@
 #' @param fpr list - False positive rates for each individual ROC
 #' @param tpr list - True positive rates for each individual ROC
 #' @param thresholds list - Thresholds used to compute the fpr and tpr
-#' @param negative_count list - Total number of samples corresponding to the
+#' @param negative_count vector - Total number of samples corresponding to the
 #' negative case
-#' @param total_count list - Total number of samples
+#' @param total_count vector - Total number of samples
 #'
 #' @return list with the global fpr, tpr, and thresholds
 #' @export
 #'
 #' @examples
+#' roc_curve(
+#'   list(c(0, 0, 0, 0, 0.002), c(0, 0, 0.001, 0.015)),
+#'   list(c(0, 0.004, 0.12, 0.15, 0.4), c(0, 0.04, 0.08, 0.1)),
+#'   list(c(0.99, 0.95, 0.93, 0.92, 0.82), c(0.93, 0.92, 0.87, 0.82)),
+#'   c(123, 167),
+#'   c(324, 423)
+#' )
 roc_curve <- function(fpr, tpr, thresholds, negative_count, total_count) {
   # Obtain the partial confusion matrix (tp and fp)
   result <- partial_cm(fpr, tpr, thresholds, negative_count, total_count, descending=TRUE)
@@ -27,14 +34,21 @@ roc_curve <- function(fpr, tpr, thresholds, negative_count, total_count) {
 #' @param fpr list - False positive rates for each individual ROC.
 #' @param tpr list - True positive rates for each individual ROC.
 #' @param thresholds list - Thresholds used to compute the fpr and tpr.
-#' @param negative_count list - Total number of samples corresponding to the
+#' @param negative_count vector - Total number of samples corresponding to the
 #' negative case.
-#' @param total_count list - Total number of samples.
+#' @param total_count vector - Total number of samples.
 #'
 #' @return list with the global precision, recall, and thresholds
 #' @export
 #'
 #' @examples
+#' precision_recall_curve(
+#'   list(c(0, 0, 0, 0, 0.002), c(0, 0, 0.001, 0.015)),
+#'   list(c(0, 0.004, 0.12, 0.15, 0.4), c(0, 0.04, 0.08, 0.1)),
+#'   list(c(0.99, 0.95, 0.93, 0.92, 0.82), c(0.93, 0.92, 0.87, 0.82)),
+#'   c(123, 167),
+#'   c(324, 423)
+#' )
 precision_recall_curve <- function(fpr, tpr, thresholds, negative_count, total_count) {
   # Obtain the partial confusion matrix (tp and fp)
   result <- partial_cm(fpr, tpr, thresholds, negative_count, total_count)

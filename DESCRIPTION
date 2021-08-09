@@ -5,7 +5,7 @@ Authors@R:
     person(given = "Pedro",
            family = "Mateus",
            role = c("aut", "cre"),
-           email = "p.dacostamateus@maastrichtuniversity.nl",
+           email = "pedro-cm@live.com.pt",
            comment = c(ORCID = "0000-0002-3047-7630"))
 Description: Aggregates the ROCs obtained from multiple sources into one global
     ROC. Additionally, it's also possible to calculate the precision-recall

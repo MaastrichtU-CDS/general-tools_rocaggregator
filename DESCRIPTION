@@ -6,7 +6,7 @@ Authors@R:
            family = "Mateus",
            role = c("aut", "cre"),
            email = "p.dacostamateus@maastrichtuniversity.nl",
-           comment = c(ORCID = "YOUR-ORCID-ID"))
+           comment = c(ORCID = "0000-0002-3047-7630"))
 Description: Aggregates the ROCs obtained from multiple sources into one global
     ROC. Additionally, it's also possible to calculate the precision-recall
     curve.
@@ -21,5 +21,14 @@ Imports:
 Suggests: 
     testthat (>= 3.0.0),
     mockery,
-    mockr
+    mockr,
+    knitr,
+    rmarkdown,
+    ROCR,
+    pROC,
+    pracma,
+    stats
 Config/testthat/edition: 3
+VignetteBuilder: knitr
+URL: https://gitlab.com/UM-CDS/general-tools/rocaggregator
+BugReports: https://gitlab.com/UM-CDS/general-tools/rocaggregator/-/issues

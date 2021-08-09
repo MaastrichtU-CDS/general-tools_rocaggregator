@@ -46,13 +46,13 @@ partial_cm <- function(fpr, tpr, thresholds, negative_count, total_count, descen
     # Build an index list based on the i node values by doing a cumulative sum
     sum <- cumsum((node_indexes_shifted == i)[sorted_thresholds_ix]) + 1
     # Calculating and sort by threshold the tp and fp for the node
-    cm = sweep(cbind(fpr[[i]], tpr[[i]]), MARGIN=2, c(negative_count[[i]], total_count[[i]] - negative_count[[i]]), '*')
+    cm <- sweep(cbind(fpr[[i]], tpr[[i]]), MARGIN=2, c(negative_count[[i]], total_count[[i]] - negative_count[[i]]), '*')
     sorted_cm_ix <- sort(node_thresholds, decreasing = TRUE, index.return = TRUE)$ix
-    cm_sorted = rbind(c(cm[1,1], cm[1,2]), cm[sorted_cm_ix,])
+    cm_sorted <- cm[sorted_cm_ix,]
     # Add the tp and fp values to the global array
-    acc = acc + cm_sorted[sum,]
+    acc <- acc + (rbind(c(cm_sorted[1,1], cm_sorted[1,2]), cm_sorted))[sum,]
     # Increment the shift
-    shift = shift + length(node_thresholds)
+    shift <- shift - length(node_thresholds)
   }
   # Remove duplicated thresholds
   thresholds_stack_sorted <- sort(thresholds_stack, decreasing = TRUE)

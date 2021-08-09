@@ -1,5 +1,5 @@
 Package: ROCaggregator
-Title: Aggregate Multiple ROC curves into One Global ROC
+Title: Aggregate Multiple ROC Curves into One Global ROC
 Version: 1.0.0
 Authors@R: 
     person(given = "Pedro",

@@ -18,8 +18,20 @@ knitr::opts_chunk$set(
 <!-- badges: start -->
 <!-- badges: end -->
 
-Aggregates the ROCs obtained from multiple sources into one global ROC.
-Additionally, it's also possible to calculate the precision-recall curve.
+Aggregates the ROCs (Receiver Operating Characteristic) obtained from multiple 
+sources into one global ROC.
+Additionally, it's also possible to calculate the aggregated precision-recall 
+curve.
+
+## Motivation
+
+The ROC and the AUC (Area Under the Curve) can be essential metrics when 
+evaluating a model. In situations where there is a parallelization of the model 
+development, such as federated learning, it becomes relevant to obtain precise 
+measures for these metrics. These approaches usually produce partial results 
+that require aggregation methods to get the complete picture. 
+The ROCaggregator appears in this context, allowing to
+compute the precise ROC curve from the partial results.
 
 ## Installation
 
@@ -31,7 +43,14 @@ install.packages("ROCaggregator")
 
 ## Example
 
-- Obtain the global ROC curve from different sources by providing the false positive rate (fpr), true positive rate (tpr), thresholds (thresh), the total number of negative samples, and the total number of samples from each source:
+Check the complete example provided in the vignette.
+
+Obtain the global ROC curve from different sources by providing:
+- the false positive rate (fpr)
+- true positive rate (tpr)
+- thresholds (thresh)
+- the total number of negative samples/control
+- the total number of samples from each source
 
 ```
 library(ROCaggregator)

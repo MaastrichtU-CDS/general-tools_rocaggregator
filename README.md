@@ -6,9 +6,9 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-Aggregates the ROCs (Receiver Operating Characteristic) obtained from
-multiple sources into one global ROC. Additionally, it’s also possible
-to calculate the aggregated precision-recall curve.
+Aggregates multiple Receiver Operating Characteristic (ROC) curves
+obtained from different sources into one global ROC. Additionally, it’s
+also possible to calculate the aggregated precision-recall (PR) curve.
 
 ## Motivation
 

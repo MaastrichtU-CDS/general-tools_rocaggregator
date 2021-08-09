@@ -1,15 +1,15 @@
 Package: ROCaggregator
-Title: Aggregates the ROCs obtained from multiple sources into one global ROC
+Title: Aggregate Multiple ROC curves into One Global ROC
 Version: 1.0.0
 Authors@R: 
     person(given = "Pedro",
            family = "Mateus",
-           role = c("aut", "cre"),
            email = "pedro-cm@live.com.pt",
+           role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-3047-7630"))
-Description: Aggregates the ROCs obtained from multiple sources into one global
-    ROC. Additionally, it's also possible to calculate the precision-recall
-    curve.
+Description: Aggregates multiple Receiver Operating Characteristic (ROC) curves 
+    obtained from different sources into one global ROC. Additionally, it’s 
+    also possible to calculate the aggregated precision-recall (PR) curve.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
